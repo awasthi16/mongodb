@@ -8,6 +8,8 @@ show dbs
 
 use myDatabase
 
+db.createCollections('data')
+
 db.tasks.find({ result: { $ne: null } })
 db.tasks.find({ result: { $exists: true } })
 
