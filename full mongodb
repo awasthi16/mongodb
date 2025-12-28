@@ -17,6 +17,17 @@ db.tasks.find({
 
 
 
+db.users.insertOne({ name: "Ram", age: 25 })
+db.users.find({ age: { $gt: 20 } })
+db.users.updateOne(
+  { name: "Ram" },
+  { $set: { age: 26 } }
+)
+db.users.deleteOne({ name: "Ram" })
+
+
+
+
 
 articles> use article_recommender
 switched to db article_recommender
