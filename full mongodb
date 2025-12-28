@@ -1,0 +1,101 @@
+install mongoshall msi
+
+mongosh --version 
+
+mongosh "mongodb://localhost:27017"
+
+show dbs
+
+use myDatabase
+
+
+articles> use article_recommender
+switched to db article_recommender
+article_recommender> db.articles.countDocuments()
+10
+article_recommender> show collections
+articles
+article_recommender> db.articles.find()
+[
+  {
+    _id: ObjectId('68ef34d35bc61dd2c90429c1'),
+    title: 'tiger',
+    content: 'hello',
+    tags: [],
+    createdAt: ISODate('2025-10-15T05:44:51.914Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef361a98681d549bb76099'),
+    title: 'tiger',
+    content: 'hello',
+    tags: [],
+    createdAt: ISODate('2025-10-15T05:50:18.303Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef37c498681d549bb7609b'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T05:57:24.100Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef38d4c38ac2adf54a4ec8'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:01:56.990Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef38dbc38ac2adf54a4eca'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:02:03.462Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef39577cca2a1c14c28d33'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:04:07.266Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef3a8441bf6311b54cd8d4'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:09:08.030Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef3be23822b3942845279e'),
+    title: 'tiger',
+    content: 'hello ji',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:14:58.882Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef3c54cbfb7e00a2c314bf'),
+    title: 'mohit',
+    content: 'hello',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:16:52.514Z'),
+    __v: 0
+  },
+  {
+    _id: ObjectId('68ef3e9f69c346507609b2c3'),
+    title: 'mohit',
+    content: 'hello',
+    tags: [],
+    createdAt: ISODate('2025-10-15T06:26:39.499Z'),
+    __v: 0
+  }
+]
+article_recommender>
