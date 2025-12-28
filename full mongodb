@@ -8,6 +8,15 @@ show dbs
 
 use myDatabase
 
+db.tasks.find({ result: { $ne: null } })
+db.tasks.find({ result: { $exists: true } })
+
+db.tasks.find({
+  result: { $exists: true, $ne: null }
+})
+
+
+
 
 articles> use article_recommender
 switched to db article_recommender
