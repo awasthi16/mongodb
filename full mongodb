@@ -30,6 +30,28 @@ db.users.deleteOne({ name: "Ram" })
 
 
 
+{
+  "_id": 1,
+  "user": {
+    "name": "billu",
+    "profile": {
+      "age": 12,
+      "city": "Delhi"
+    }
+  }
+}
+
+
+db.users.find(
+  {},
+  { "user.profile.city": 1, _id: 0 }
+)
+
+
+
+
+
+
 
 articles> use article_recommender
 switched to db article_recommender
