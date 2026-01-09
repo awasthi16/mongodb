@@ -146,3 +146,160 @@ article_recommender> db.articles.find()
   }
 ]
 article_recommender>
+
+
+
+
+
+
+
+
+
+
+-----------------------------------
+
+# ================================
+# LOGICAL OPERATORS IN MONGODB
+# ================================
+
+# Operators:
+# $and  -> All conditions must be true
+# $or   -> Any one condition must be true
+# $not  -> Negates a condition
+# $nor  -> All conditions must be false
+
+
+# ================================
+# SAMPLE DOCUMENT STRUCTURE
+# ================================
+# {
+#   "_id": 1,
+#   "name": "Amit",
+#   "age": 25,
+#   "city": "Delhi",
+#   "salary": 30000
+# }
+
+
+# ================================
+# 1. $and OPERATOR
+# ================================
+
+# Find users with age > 18 AND city = Delhi
+query_and = {
+    "$and": [
+        {"age": {"$gt": 18}},
+        {"city": "Delhi"}
+    ]
+}
+
+# Shortcut (Implicit AND – Recommended)
+query_and_short = {
+    "age": {"$gt": 18},
+    "city": "Delhi"
+}
+
+
+# ================================
+# 2. $or OPERATOR
+# ================================
+
+# Find users from Delhi OR Mumbai
+query_or = {
+    "$or": [
+        {"city": "Delhi"},
+        {"city": "Mumbai"}
+    ]
+}
+
+
+# ================================
+# 3. $not OPERATOR
+# ================================
+
+# Find users whose age is NOT greater than 18
+query_not = {
+    "age": {
+        "$not": {"$gt": 18}
+    }
+}
+
+# Equivalent query
+query_not_equivalent = {
+    "age": {"$lte": 18}
+}
+
+
+# ================================
+# 4. $nor OPERATOR
+# ================================
+
+# Find users who are NOT from Delhi AND NOT below 18
+query_nor = {
+    "$nor": [
+        {"city": "Delhi"},
+        {"age": {"$lt": 18}}
+    ]
+}
+
+
+# ================================
+# COMBINED LOGICAL OPERATORS
+# ================================
+
+# Users age >= 18 AND (city Delhi OR Mumbai)
+query_combined = {
+    "$and": [
+        {"age": {"$gte": 18}},
+        {
+            "$or": [
+                {"city": "Delhi"},
+                {"city": "Mumbai"}
+            ]
+        }
+    ]
+}
+
+
+# ================================
+# LOGICAL + COMPARISON OPERATORS
+# ================================
+
+# Salary > 50000 OR age < 25
+query_logic_compare = {
+    "$or": [
+        {"salary": {"$gt": 50000}},
+        {"age": {"$lt": 25}}
+    ]
+}
+
+
+# ================================
+# PYTHON + PYMONGO USAGE (REFERENCE)
+# ================================
+
+"""
+from pymongo import MongoClient
+
+client = MongoClient("mongodb://localhost:27017/")
+db = client["company"]
+users = db["users"]
+
+results = users.find(query_or)
+for doc in results:
+    print(doc)
+"""
+
+
+# ================================
+# QUICK SUMMARY
+# ================================
+# $and -> all conditions true
+# $or  -> any condition true
+# $not -> reverse condition
+# $nor -> all conditions false
+
+# ================================
+# END OF FILE
+# ================================
+
